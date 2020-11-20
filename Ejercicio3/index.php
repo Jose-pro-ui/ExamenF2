@@ -33,41 +33,42 @@
 
     <!--PRODUCTOS-->
     <h1 class="titulo" id="productos">PRODUCTOS</h1>
-    <div class="container">	
-        <h3 align="center">Tabla de Registro</a></h3>
-		<div align="right" style="margin-bottom:5px;">
-		    <button type="button" name="add" id="add" class="btn btn-success btn-xs">Añadir</button>
-		</div>
-        
-        <div class="table-responsive" id="user_data"></div>
-		<br />
+    <div style="background-color: #4FC3F7;">
+        <div class="container">	
+            <h3 align="center">Tabla de Registro</a></h3>
+            <div align="right" style="margin-bottom:5px;">
+                <button type="button" name="add" id="add" class="btn btn-success btn-xs">Añadir</button>
+            </div>
+            
+            <div class="table-responsive" id="user_data"></div>
+            <br />
+        </div>
+        <div id="user_dialog" title="Registro de Producto">
+            <form method="post" id="user_form">
+                <div class="form-group">
+                    <label>Ingrese el producto</label>
+                    <input type="text" name="producto" id="producto" class="form-control" />
+                    <span id="error_producto" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Ingrese el precio</label>
+                    <input type="text" name="precio" id="precio" class="form-control" />
+                    <span id="error_precio" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="action" id="action" value="insert" />
+                    <input type="hidden" name="hidden_id" id="hidden_id" />
+                    <input type="submit" name="form_action" id="form_action" class="btn btn-info" value="Insert" />
+                </div>
+            </form>
+        </div>
+            
+        <div id="action_alert" title="Action"></div>
+            
+        <div id="delete_confirmation" title="Confirmation">
+            <p>Esta seguro de Eliminar es elemento?</p>
+        </div>
     </div>
-    
-	<div id="user_dialog" title="Registro de Producto">
-		<form method="post" id="user_form">
-			<div class="form-group">
-				<label>Ingrese el producto</label>
-				<input type="text" name="producto" id="producto" class="form-control" />
-				<span id="error_producto" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label>Ingrese el precio</label>
-				<input type="text" name="precio" id="precio" class="form-control" />
-				<span id="error_precio" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<input type="hidden" name="action" id="action" value="insert" />
-				<input type="hidden" name="hidden_id" id="hidden_id" />
-				<input type="submit" name="form_action" id="form_action" class="btn btn-info" value="Insert" />
-			</div>
-		</form>
-	</div>
-		
-	<div id="action_alert" title="Action"></div>
-		
-	<div id="delete_confirmation" title="Confirmation">
-		<p>Esta seguro de Eliminar es elemento?</p>
-	</div>
     <!--FOOTER-->
     <footer>
         <div class="derechos">
