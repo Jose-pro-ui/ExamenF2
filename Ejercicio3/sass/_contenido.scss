@@ -1,0 +1,284 @@
+@use 'base';
+
+.titulo{
+    text-align: center;
+    background-color: base.$fondo;
+    padding: base.$tam-pad;
+    color: white;
+    h1{
+        font-family: base.$fuente-titulo;
+        font-size: 40px;
+        text-align: center;
+    }
+}
+//INICIO
+.portada{
+    @include base.flex-fila();
+    justify-content: center;   
+    .imgpor{
+        height: 100vh;
+        width: 100%;
+    }
+}
+
+//NOSOTROS
+.nosotros{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: base.$tam-pad;
+    background-color: base.$light;
+    text-align: center;
+    .box{
+        padding: base.$tam-pad;
+        margin: base.$tam-pad;
+        background-color: base.$fondo;
+        border-radius: 20px;
+        img{
+            height: 35%;
+            width: 35%;
+            margin: base.$tam-pad;;
+        }
+        .t2{
+            padding: base.$tam-pad;
+            font-family: base.$fuente-menu;
+            font-size: 50px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+        .p2{
+            padding: base.$tam-pad;
+            font-family: base.$fuente-general;
+            text-align: center;
+            color: white;
+            font-size: 25px;
+        }
+    }
+}
+
+//PRODUCTOS
+.productos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 2em;
+    grid-gap: 3em;
+    background-color: base.$light;
+    .producto{
+        padding: base.$tam-pad;
+        margin: 0 auto;
+        background-color: base.$fondo;
+        border-radius: 20px;
+        .producto-img{
+            height: 250px;
+            width: 250px;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .producto-info{
+            margin: 0 auto;
+            padding: base.$tam-pad;
+            h3{
+                font-family: base.$fuente-titulo;
+                text-align: center;
+                color: base.$light;
+            }
+            p{
+                margin-top: 10px;
+                text-align: center;
+                font-family: base.$fuente-general;
+                color: base.$claro;
+            }
+        }
+        .btn{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            text-align: start;
+            a{
+                width: 100%;
+                text-decoration: none;
+                button{
+                    display: flex;
+                    flex-direction: row;
+                    margin: 5px;
+                    height: 45px;
+                    width: 100%;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 10px;
+                    &:hover{
+                        background-color: base.$light;
+                    }
+                }
+            }
+        }
+    }
+    .producto:hover{
+        box-shadow: 0px 0px 4px black, 2px 2px 6px black, -2px -2px 6px black;
+    }
+}
+
+//CONTACTOS
+.formulario{
+    padding: 50px;
+    background-color: base.$light;
+    border-bottom: 1px solid black;
+    form{
+        background-color: base.$light;
+        border-radius: 5px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "nombre     nombre"
+                             "correo     tel"
+                             "comentario comentario"
+                             "boton      boton";
+        grid-gap: base.$tam-gap;
+        div{
+            @include base.flex-column();
+        }
+        .name{
+            grid-area: nombre;
+        }
+        .email{
+            grid-area: correo;
+        }
+        .phone{
+            grid-area: tel;
+        }
+        .message{
+            grid-area: comentario;
+            justify-content: start;
+        }
+        button{
+            grid-area: boton;
+            border-radius: 20px;
+            height: 50px;
+            font-family: base.$fuente-menu;
+            margin-top: 30px;
+            background-color: base.$claro;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 300ms;
+            &:hover{
+                background-color: base.$fondo;
+                color: white;
+            }
+        }
+        label{
+            font-family: base.$fuente-general;
+            padding: 2px;
+            font-size: 20px;
+        }
+        textarea{
+            height: 100px;
+        }
+        input{
+            height: 30px;
+        }
+        input, textarea{
+            border-radius: 10px;
+            padding: 10px;
+        }
+    }
+}
+
+@media (max-width: map-get($map: base.$puntos, $key: 'big')){
+    .productos{
+        .producto{
+            width: 100%;
+            .producto-img{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: map-get($map: base.$puntos, $key: 'medium')){
+    .titulo{
+        font-size: 30px;
+    }
+    .portada{
+        .imgpor{
+            height: 70vh;
+            width: 100%;
+        }
+    }
+    .nosotros{
+        display: grid;    
+        grid-template-columns: 1fr 1fr;
+        .box{
+            img{
+                display: none;
+            }
+            .t2{
+                font-size: 40px;
+            }
+            .p2{
+                font-size: 20px;
+            }
+        }
+    }
+    .productos{
+        grid-template-columns: 1fr 1fr;
+        .producto{
+            width: 100%;
+            .producto-img{
+                width: 100%;
+            }
+        }
+    }
+    .formulario{    
+        form{
+            padding: 30px;
+            grid-template-columns: 1fr 1fr;
+            grid-area: "nombre     nombre"
+                       "correo     tel"
+                       "comentario comentario"
+                       "boton      boton";
+        }
+    }
+}
+
+@media (max-width: map-get($map: base.$puntos, $key: 'small')){
+    .titulo{
+        font-size: 20px;
+    }
+    .portada{
+        .imgpor{
+            height: 50vh;
+            width: 100%;
+        }
+    }
+    .nosotros{
+        display: grid;    
+        grid-template-columns: 1fr;
+        .box{
+            img{
+                display: none;
+            }
+            .t2{
+                font-size: 30px;
+            }
+            .p2{
+                font-size: 15px;
+            }
+        }
+    }
+    .productos{
+        grid-template-columns: 1fr;
+        .producto{
+            width: 100%;
+        }
+    }
+    .formulario{
+        padding: 10px;
+        form{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-areas: "nombre" "correo" "tel" "comentario" "boton";
+            grid-gap: base.$tam-gap;
+            padding: 15px;
+        }
+    }
+}

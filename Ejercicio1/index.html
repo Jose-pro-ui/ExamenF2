@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+
+    <script src="js/jquery-3.5.1.js"></script>
+</head>
+<body>
+    <h1>Ejercicio 1</h1>
+    <p>
+        Implementar una página que contenga un botón y que al presionarlo recupere y
+        muestre en pantalla la información de un producto que está en otro archivo json
+    </p>
+
+    <h2>GetJson</h2>
+    <button id="btnCargar">Cargar Datos</button>
+    <div id="resJson"></div>
+    <script>
+        $(()=>{
+            $("#btnCargar").click(()=>{
+                $.getJSON('datos.json', function(data){
+                    let items = [];
+                    $.each(data, function(ind, val){
+                        items.push("<li id='"+ind+"'>"+val+"</li>");
+                    });
+                    $('<ul/>', {
+                        "class": "lista",
+                        html: items.join("")
+                    }).appendTo('body');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

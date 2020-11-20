@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+
+    <script src="js/jquery-3.5.1.js"></script>
+
+    <style>
+        .recuadro {
+            background-color: #ffffcc;
+            font-family: verdana;
+            font-size: 20px;
+            border: 10px solid #C00;
+        }
+    </style>
+</head>
+<body>
+    <h2>Ejercicio 4</h2>
+    <p>
+        Confeccionar una página que muestre un recuadro con texto. 
+        Disponer dos botones, uno que oculte (fadeOut) y el otro 
+        que lo muestre (fadeIn).
+    </p>
+
+    <input type="button" id="boton1" value="Ocultar recuadro">
+    <input type="button" id="boton2" value="Mostrar recuadro">
+
+    <div id="descripcion" class="recuadro">
+        <p>
+            Como veremos, de cada concepto se presenta una parte teórica,
+            en la que se da una explicación completa,
+            se pasa a la sección del ejercicio resuelto donde podemos ver el
+            contenido de la página HTML y cómo
+            la visualiza el navegador. Por último y tal vez la sección más
+            importante de este tutorial es donde se
+            propone que usted haga páginas en forma autónoma (donde realmente
+            podrá darse cuenta si el concepto quedó
+            firme).
+        </p>
+    </div>
+
+    <script>
+        $(()=>{
+            $("#boton1").click(function(){
+                ocultarRecuadro()
+            });
+
+            $("#boton2").click(function(){
+                mostrarRecuadro()
+            });
+
+            function ocultarRecuadro() {
+                let x = $("#descripcion");
+                x.fadeOut("slow");
+            }
+
+            function mostrarRecuadro() {
+                let x = $("#descripcion");
+                x.fadeIn("slow");
+            }
+        });
+    </script>
+</body>
+</html>
