@@ -33,10 +33,8 @@
 
     <!--PRODUCTOS-->
     <h1 class="titulo" id="productos">PRODUCTOS</h1>
-    <div class="container">
-		<br />	
-        <h3 align="center"> Mis Productos</a></h3><br />
-        <br />
+    <div class="container">	
+        <h3 align="center">Tabla de Registro</a></h3>
 		<div align="right" style="margin-bottom:5px;">
 		    <button type="button" name="add" id="add" class="btn btn-success btn-xs">Añadir</button>
 		</div>
